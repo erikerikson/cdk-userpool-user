@@ -1,5 +1,7 @@
 # Provisioning Cognito users using AWS CDK
 
+Forked from [@awesome-cdk/cdk-userpool-user](https://github.com/awesome-cdk/cdk-userpool-user/).
+
 Easily add/create users inside a Cognito UserPool during infrastructure provisioning using AWS CDK.
 
 The most common use case is for provisioning the "first admin" within your platform, who can later create other admins
@@ -15,6 +17,21 @@ new UserPoolUser(this, 'Tina', {
     userPool,
     username: 'tina_2021',
     password: 'Passw0$rd',
+});
+```
+
+If you want to create a user with attributes, such as `email_verified` to ensure the account behaves the same as normal users.
+
+```typescript
+ new UserPoolUser(this, '$stack-auth-test-user', {
+    userPool,
+    username: 'test@example.com',
+    password: 'Passw0$rd',
+    attributes: [
+        { Name: 'email', Value: 'test@example.com' },
+        { Name: 'email_verified', Value: 'true' },
+        { Name: 'name', Value: 'Test User' },
+    ],
 });
 ```
 
