@@ -1,5 +1,5 @@
 {
-  "name": "@erikerikson/cdk-userpool-user",
+  "name": "@erik.erikson/cdk-userpool-user",
   "author": {
     "name": "Erik Erikson",
     "email": "erik.erikson@gmail.com",
@@ -38,7 +38,9 @@
       }
     ]
   },
-  "repository": "https://github.com/erikerikson/cdk-userpool-user",
+  "repository": {
+    "url": "https://github.com/erikerikson/cdk-userpool-user"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^27.5.0",
