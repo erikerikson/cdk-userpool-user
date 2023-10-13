@@ -1,10 +1,9 @@
 name: CI
 permissions:
-  contents: write
+  contents: read
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:
 
 jobs:
   release:
@@ -29,6 +28,7 @@ jobs:
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
         run: npm audit signatures
       - run: npx tsc
+      - run: npm run test
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
